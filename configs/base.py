@@ -10,7 +10,7 @@ def base():
     config.seed = 42
     config.wandb_project = "susie"
     config.run_name = "susie-nav"
-    config.logdir = "gs://catg_central2/logs"
+    config.logdir = "gs://arjun_central2/logs"
     config.num_steps = 100000
     config.log_interval = 100
     config.save_interval = 5000
@@ -109,7 +109,7 @@ def base():
 
     config.data.primitives = primitives = deepcopy(data_base)
     primitives.weight = 100.0
-    primitives.data_path = "gs://catg_central2/primitives_big"
+    primitives.data_path = "gs://arjun_central2/sim_data_fix1"
     primitives.goal_relabeling_fn = "subgoal_only"
     primitives.goal_relabeling_kwargs = dict(
         subgoal_delta=(6, 9),

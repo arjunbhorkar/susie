@@ -94,6 +94,9 @@ def make_dataset(
     augment_kwargs: dict = {},
 ) -> dl.DLataset:
     paths = getattr(GetPaths, name)(data_path, train)
+    print(name, paths, image_size, shuffle_buffer_size)
+    
+    print("in2")
     
     dataset = (
         dl.DLataset.from_tfrecords(paths)
@@ -118,6 +121,9 @@ def make_dataset(
         )
     )
     examples = dataset.take(5)
+    
+    print(examples)
+    print(examples[0])
     
     if train:
         dataset = dataset.map(
@@ -149,6 +155,8 @@ def get_data_loader(data_config, tokenize_fn, mesh=None):
     train_datasets = []
     val_datasets = []
     weights = []
+    
+    print("in1")
     
     for data_name, data_kwargs in data_config.items():
         data_kwargs = dict(data_kwargs)

@@ -318,8 +318,12 @@ def main(_):
         config.data, tokenize_fn, mesh
     )
     # warm up loaders
+    print(num_datasets)
+    
     logging.info("Warming up data loaders...")
-    next(train_loader), next(val_loader)
+    a, b = next(train_loader), next(val_loader)
+    print(a, b)
+    time.sleep(10)
     # initialize parameters
     if pretrained_params is None or config.wandb_resume_id is not None:
         example_batch = next(train_loader)
